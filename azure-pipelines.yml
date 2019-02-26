@@ -15,3 +15,9 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: '6cbeaeaf-c8af-4bd2-bd89-b0315d3f5594'
+    WebAppName: 'AnotherWebApiTest20190226095023'
+    Package: $(System.ArtifactsDirectory)/**/*.zip
